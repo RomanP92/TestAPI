@@ -1,0 +1,9 @@
+SELECT testAPI_customusermodel.email, COUNT(*) AS count_links, testAPI_customusermodel.last_login AS login_date
+FROM testAPI_customusermodel
+JOIN testAPI_linkmodel ON testAPI_customusermodel.id = testAPI_linkmodel.author_id
+GROUP BY email
+ORDER BY count_links DESC, login_date ASC
+LIMIT 10;
+
+Только вывожу по логину, а не по созданию юзера.
+P.S. Пользователе еще не были залогинены после создания
